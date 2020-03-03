@@ -214,7 +214,7 @@ Sample: curl http://127.0.0.1:5000/categories
 ### POST /questions
 This endpoint either creates a new question or returns search results.
 
-< If no search term is included in request:
+> If no search term is included in request:
 - General:
 
 - Creates a new question using JSON request parameters.
@@ -304,7 +304,7 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
   }
   ``` 
   
-< If search term is included in request:
+> If search term is included in request:
 - General:
 
 - Searches for questions using search term in JSON request parameters.
