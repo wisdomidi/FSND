@@ -36,22 +36,22 @@ Once you have your virtual environment setup and running, install dependencies b
 
  To run the server, execute:
 
-...
-export FLASK_APP=flaskr
-export FLASK_ENV=development
-flask run
+
+> export FLASK_APP=flaskr
+> export FLASK_ENV=development
+> flask run
 ...
 
 # Testing
 To run the tests, run
 
 
-...
-dropdb trivia_test
-createdb trivia_test
-psql trivia_test < trivia.psql
-python test_flaskr.py
-...
+
+> dropdb trivia_test
+> createdb trivia_test
+> psql trivia_test < trivia.psql
+> python test_flaskr.py
+
 
 Omit the dropdb command the first time you run tests.
 
@@ -65,12 +65,14 @@ Authentication: This version does not require authentication or API keys.
 # Error Handling
 
 Errors are returned as JSON in the following format:
-
+'''
 {
     "success": False,
     "error": 404,
     "message": "resource not found"
 }
+'''
+
  The API will return three types of errors:
 
 - 400 – bad request
