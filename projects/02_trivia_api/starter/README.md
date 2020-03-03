@@ -61,15 +61,16 @@ To run the tests, run
 #### Omit the dropdb command the first time you run tests.
 
 
-## API Reference
+# API Reference
 
-### Getting Started
+## Getting Started
 Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
-Authentication: This version does not require authentication or API keys.
 
-# Error Handling
+##### Authentication: This version does not require authentication or API keys.
 
-## Errors are returned as JSON in the following format:
+## Error Handling
+
+### Errors are returned as JSON in the following format:
 ```
 {
     "success": False,
