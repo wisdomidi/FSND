@@ -40,7 +40,7 @@ Once you have your virtual environment setup and running, install dependencies b
 > export FLASK_APP=flaskr
 > export FLASK_ENV=development
 > flask run
-...
+
 
 # Testing
 To run the tests, run
