@@ -8,33 +8,33 @@ This project is a game where users can test their knowledge answering trivia que
 - Search for questions based on a text query string.
 - Play the quiz game, randomizing either all questions or within a specific category.
 
-# Getting Started
+## Getting Started
 
-## Installing Dependencies
+### Installing Dependencies
 Developers using this project should already have Python3, pip, node, and npm installed.
 
-# Frontend Dependencies
+## Frontend Dependencies
 This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the frontend directory of this repository. After cloning, open your terminal and run:
 
 > npm install
 
-# Backend Dependencies
+## Backend Dependencies
 Once you have your virtual environment setup and running, install dependencies by naviging to the /backend directory and running:
 
 > pip install -r requirements.txt 
 
 
-#  Running the Frontend in Dev Mode
+##  Running the Frontend in Dev Mode
  The frontend app was built using create-react-app. In order to run the app in development mode use npm start. You can change the script in the package.json file.
 
  Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
 
 > npm start
 
-# Running the Server
+## Running the Server
   From within the backend directory first ensure you are working using your created virtual environment.
 
- ### To run the server, execute:
+ - To run the server, execute:
 
 
 > export FLASK_APP=flaskr
@@ -44,7 +44,7 @@ Once you have your virtual environment setup and running, install dependencies b
 > flask run
 
 
-# Testing
+### Testing
 To run the tests, run
 
 
@@ -58,15 +58,15 @@ To run the tests, run
 > python test_flaskr.py
 
 
-#### Omit the dropdb command the first time you run tests.
+-  Omit the dropdb command the first time you run tests.
 
 
-# API Reference
+## API Reference
 
-## Getting Started
+### Getting Started
 Base URL: Currently this application is only hosted locally. The backend is hosted at http://127.0.0.1:5000/
 
-##### Authentication: This version does not require authentication or API keys.
+-  Authentication: This version does not require authentication or API keys.
 
 ## Error Handling
 
@@ -81,14 +81,14 @@ Base URL: Currently this application is only hosted locally. The backend is host
 
  The API will return three types of errors:
 ```
-- 400 – bad request
-- 404 – resource not found
-- 422 – unprocessable
+ 400 – bad request
+ 404 – resource not found
+ 422 – unprocessable
 ```
 
-# Endpoints
-## GET /categories
-## - General: Returns a list categories.
+### Endpoints
+#### GET /categories
+ - General: Returns a list categories.
 
 Sample: curl http://127.0.0.1:5000/categories
 ```
@@ -104,13 +104,13 @@ Sample: curl http://127.0.0.1:5000/categories
       "success": true
   }
   ```
-# GET /questions
- ## General:
+#### GET /questions
+ - General:
+- Returns a list questions.
+- Results are paginated in groups of 10.
+- Also returns list of categories and total number of questions.
+- Sample: curl http://127.0.0.1:5000/questions
 
-## Returns a list questions.
-Results are paginated in groups of 10.
-Also returns list of categories and total number of questions.
-Sample: curl http://127.0.0.1:5000/questions
 ```
   {
       "categories": {
@@ -199,27 +199,30 @@ Sample: curl http://127.0.0.1:5000/questions
   ```
   
 # DELETE /questions/<int:id>
-## General:
+- General:
 
-### Deletes a question by id using url parameters.
-Returns id of deleted question upon success.
-Sample: curl http://127.0.0.1:5000/questions/6 -X DELETE
+- Deletes a question by id using url parameters.
+- Returns id of deleted question upon success.
+
+- Sample: curl http://127.0.0.1:5000/questions/6 -X DELETE
 ```
   {
       "deleted": 6, 
       "success": true
   }
   ``` 
-# POST /questions
+### POST /questions
 This endpoint either creates a new question or returns search results.
 
-## If no search term is included in request:
-## General:
+< If no search term is included in request:
+- General:
 
-# Creates a new question using JSON request parameters.
+- Creates a new question using JSON request parameters.
 
-Returns JSON object with newly created question, as well as paginated questions.
+- Returns JSON object with newly created question, as well as paginated questions.
+
 Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "Which US state contains an area known as the Upper Penninsula?", "answer": "Michigan", "difficulty": 3, "category": "3" }'
+
 ```
   {
       "created": 173, 
@@ -301,12 +304,13 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
   }
   ``` 
   
-# If search term is included in request:
-## General:
+< If search term is included in request:
+- General:
 
-# Searches for questions using search term in JSON request parameters.
-Returns JSON object with paginated matching questions.
-Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "which"}'
+- Searches for questions using search term in JSON request parameters.
+- Returns JSON object with paginated matching questions.
+
+- Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "which"}'
 ```
   {
       "questions": [
@@ -372,12 +376,13 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
   }
   ```
   
-# GET /categories/<int:id>/questions
-##  General:
+### GET /categories/<int:id>/questions
+-  General:
 
-# Gets questions by category id using url parameters.
-Returns JSON object with paginated matching questions.
-Sample: curl http://127.0.0.1:5000/categories/1/questions
+- Gets questions by category id using url parameters.
+- Returns JSON object with paginated matching questions.
+
+- Sample: curl http://127.0.0.1:5000/categories/1/questions
 ```
   {
       "current_category": "Science", 
@@ -409,13 +414,14 @@ Sample: curl http://127.0.0.1:5000/categories/1/questions
   }
   ``` 
   
-# POST /quizzes
-## General:
+### POST /quizzes
+- General:
 
-# Allows users to play the quiz game.
-Uses JSON request parameters of category and previous questions.
-Returns JSON object with random question not among previous questions.
-Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions": [20, 21], "quiz_category": {"type": "Science", "id": "1"}}'
+- Allows users to play the quiz game.
+- Uses JSON request parameters of category and previous questions.
+- Returns JSON object with random question not among previous questions.
+
+- Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions": [20, 21], "quiz_category": {"type": "Science", "id": "1"}}'
 ```
   {
       "question": {
@@ -429,4 +435,5 @@ Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application
   }
   ```
 # Authors
+Wisdom Idi authored the API (__init__.py), test suite (test_flaskr.py), and this README.
 All  project files, including the models and frontend, were created by Udacity as a project template for the Full Stack Web Developer Nanodegree.
