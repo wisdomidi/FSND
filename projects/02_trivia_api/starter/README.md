@@ -17,7 +17,7 @@ npm install
 Backend Dependencies
 Once you have your virtual environment setup and running, install dependencies by naviging to the /backend directory and running:
 
-pip install -r requirements.txt
+pip install -r requirements.txt 
 Running the Frontend in Dev Mode
 The frontend app was built using create-react-app. In order to run the app in development mode use npm start. You can change the script in the package.json file.
 
