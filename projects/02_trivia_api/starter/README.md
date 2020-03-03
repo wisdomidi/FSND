@@ -34,7 +34,7 @@ Once you have your virtual environment setup and running, install dependencies b
 # Running the Server
   From within the backend directory first ensure you are working using your created virtual environment.
 
- To run the server, execute:
+ ### To run the server, execute:
 
 
 > export FLASK_APP=flaskr
@@ -53,7 +53,7 @@ To run the tests, run
 > python test_flaskr.py
 
 
-Omit the dropdb command the first time you run tests.
+#### Omit the dropdb command the first time you run tests.
 
 
 ## API Reference
@@ -64,27 +64,28 @@ Authentication: This version does not require authentication or API keys.
 
 # Error Handling
 
-Errors are returned as JSON in the following format:
-'''
+## Errors are returned as JSON in the following format:
+```
 {
     "success": False,
     "error": 404,
     "message": "resource not found"
 }
-'''
+```
 
  The API will return three types of errors:
-
+```
 - 400 – bad request
 - 404 – resource not found
 - 422 – unprocessable
+```
 
 # Endpoints
 ## GET /categories
-- General: Returns a list categories.
+## - General: Returns a list categories.
 
 Sample: curl http://127.0.0.1:5000/categories
-
+```
   {
       "categories": {
           "1": "Science", 
@@ -96,14 +97,15 @@ Sample: curl http://127.0.0.1:5000/categories
       }, 
       "success": true
   }
+  ```
 # GET /questions
-General:
+ ## General:
 
 ## Returns a list questions.
 Results are paginated in groups of 10.
 Also returns list of categories and total number of questions.
 Sample: curl http://127.0.0.1:5000/questions
-
+```
   {
       "categories": {
           "1": "Science", 
@@ -188,28 +190,31 @@ Sample: curl http://127.0.0.1:5000/questions
       "success": true, 
       "total_questions": 19
   }
+  ```
+  
 # DELETE /questions/<int:id>
 ## General:
 
-Deletes a question by id using url parameters.
+### Deletes a question by id using url parameters.
 Returns id of deleted question upon success.
 Sample: curl http://127.0.0.1:5000/questions/6 -X DELETE
-
+```
   {
       "deleted": 6, 
       "success": true
   }
+  ``` 
 # POST /questions
 This endpoint either creates a new question or returns search results.
 
 ## If no search term is included in request:
-### General:
+## General:
 
 # Creates a new question using JSON request parameters.
 
 Returns JSON object with newly created question, as well as paginated questions.
 Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{ "question": "Which US state contains an area known as the Upper Penninsula?", "answer": "Michigan", "difficulty": 3, "category": "3" }'
-
+```
   {
       "created": 173, 
       "question_created": "Which US state contains an area known as the Upper Penninsula?", 
@@ -288,13 +293,15 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
       "success": true, 
       "total_questions": 20
   }
+  ``` 
+  
 # If search term is included in request:
 ## General:
 
 # Searches for questions using search term in JSON request parameters.
 Returns JSON object with paginated matching questions.
 Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: application/json" -d '{"searchTerm": "which"}'
-
+```
   {
       "questions": [
           {
@@ -357,13 +364,15 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
       "success": true, 
       "total_questions": 18
   }
+  ```
+  
 # GET /categories/<int:id>/questions
 ##  General:
 
 # Gets questions by category id using url parameters.
 Returns JSON object with paginated matching questions.
 Sample: curl http://127.0.0.1:5000/categories/1/questions
-
+```
   {
       "current_category": "Science", 
       "questions": [
@@ -392,6 +401,8 @@ Sample: curl http://127.0.0.1:5000/categories/1/questions
       "success": true, 
       "total_questions": 18
   }
+  ``` 
+  
 # POST /quizzes
 ## General:
 
@@ -399,7 +410,7 @@ Sample: curl http://127.0.0.1:5000/categories/1/questions
 Uses JSON request parameters of category and previous questions.
 Returns JSON object with random question not among previous questions.
 Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions": [20, 21], "quiz_category": {"type": "Science", "id": "1"}}'
-
+```
   {
       "question": {
           "answer": "Blood", 
@@ -410,6 +421,6 @@ Sample: curl http://127.0.0.1:5000/quizzes -X POST -H "Content-Type: application
       }, 
       "success": true
   }
-  
+  ```
 # Authors
 All  project files, including the models and frontend, were created by Udacity as a project template for the Full Stack Web Developer Nanodegree.
