@@ -434,7 +434,7 @@ Sample: curl http://127.0.0.1:5000/questions -X POST -H "Content-Type: applicati
       "success": true
   }
   ```
-# Authors
+# Authors / credits
 Wisdom Idi authored the API (__init__.py), test suite (test_flaskr.py), and this README.
-Some code snippets from Alex Sandberg a former student.
+Some code snippets from Alex Sandberg a former student at udacity(https://github.com/alexsandberg).
 All  project files, including the models and frontend, were created by Udacity as a project template for the Full Stack Web Developer Nanodegree.
