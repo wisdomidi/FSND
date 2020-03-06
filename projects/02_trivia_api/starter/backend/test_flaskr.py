@@ -162,11 +162,8 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertEqual(data['success'], False)
 
-        # check that number of results = 1
-        #self.assertEqual(len(data['questions']), 1)
 
         # check that id of question in response is correct
-        #self.assertEqual(data['questions'][0]['id'], 23)
 
     def test_404_if_search_questions_fails(self):
         """Tests search questions failure 404"""
@@ -196,11 +193,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(data['success'], False)
         
-        # check that questions are returned (len != 0)
-        #self.assertNotEqual(len(data['questions']), 0)
-
-        # check that current category returned is science
-        #self.assertEqual(data['current_category'], 'Science')
+        
 
     def test_400_if_questions_by_category_fails(self):
         """Tests getting questions by category failure 400"""
